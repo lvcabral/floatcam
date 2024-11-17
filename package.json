@@ -1,8 +1,15 @@
 {
   "name": "floatcam",
-  "version": "0.1.0",
+  "description": "Simple, lightweight, and easy-to-use floating camera for any screen recorder",
+  "version": "0.1.1",
   "private": true,
   "main": "public/main.js",
+  "author": "Damian Simon Peter <damiansimonpeter@gmail.com>",
+  "contributors": [
+    "Gabriel Andreazza",
+    "Marcelo Lv Cabral <marcelo@lvcabral.com>"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
