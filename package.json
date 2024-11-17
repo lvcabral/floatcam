@@ -1,7 +1,7 @@
 {
   "name": "floatcam",
   "description": "Simple, lightweight, and easy-to-use floating camera for any screen recorder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "main": "public/main.js",
   "author": "Damian Simon Peter <damiansimonpeter@gmail.com>",
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@electron-forge/cli": "^6.0.1",
     "@electron-forge/maker-deb": "^6.0.1",
     "@electron-forge/maker-rpm": "^6.0.1",

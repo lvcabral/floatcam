@@ -67,19 +67,26 @@ function renderCamera(constraints) {
 window.addEventListener("DOMContentLoaded", function () {
   navigator.mediaDevices.enumerateDevices().then((devices) => {
     const cams = devices.filter((device) => device.kind === "videoinput");
-    window.electronAPI.sendSync("shared-window-channel", {
-      type: "set-webcams",
-      payload: JSON.stringify(cams),
-    });
-    const videoSource = cams[0].deviceId;
-    const constraints = {
-      video: {
-        deviceId: {
-          exact: videoSource,
+    if (cams?.length) {
+      cams.reverse();
+      window.electronAPI.sendSync("shared-window-channel", {
+        type: "set-webcams",
+        payload: JSON.stringify(cams),
+      });
+      const videoSource = cams[0].deviceId;
+      const constraints = {
+        video: {
+          deviceId: {
+            exact: videoSource,
+          },
+          width: 1280,
+          height: 720,
         },
-      },
-    };
-    renderCamera(constraints);
+      };
+      renderCamera(constraints);
+    } else {
+      console.log("No camera found");
+    }
   });
 
   window.electronAPI.onMessageReceived(

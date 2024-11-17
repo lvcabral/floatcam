@@ -31,10 +31,10 @@ function createMainWindow() {
 
 function createCameraWindow() {
   const win = new BrowserWindow({
-    width: 125,
-    height: 125,
-    maxWidth: 500,
-    maxHeight: 500,
+    width: 345,
+    height: 205,
+    maxWidth: 1945,
+    maxHeight: 1105,
     resizable: false,
     titleBarStyle: "hide",
     transparent: true,
@@ -76,7 +76,7 @@ app.whenReady().then(async () => {
   camWindow.setAlwaysOnTop(true, "floating", 1);
 
   let borderSize = 0;
-  let lastSizeWith = [125, 125];
+  let lastSizeWith = [345, 205];
   ipcMain.on("shared-window-channel", (event, arg) => {
     camWindow.webContents.send("shared-window-channel", arg);
     if (arg.type && arg.type === "set-webcams") {
@@ -84,7 +84,7 @@ app.whenReady().then(async () => {
     }
     if (arg.type && arg.type === "set-camera-resolution") {
       let { width, height } = arg.payload;
-      // adding 20 just to make sure the window is not too small to fit the camera
+      // adding 25 just to make sure the window is not too small to fit the camera
       width = Number(width.replace("px", "")) + 25;
       height = Number(height.replace("px", "")) + 25;
       lastSizeWith = [width, height];

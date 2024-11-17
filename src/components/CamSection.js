@@ -9,7 +9,7 @@ import SelectShape from "./select/Shape";
 
 const { electronAPI } = window;
 
-const defaultResolutionOptions = [
+const squareResolutionOptions = [
   {
     value: "100px",
     label: "100 X 100",
@@ -42,31 +42,43 @@ const defaultResolutionOptions = [
 
 const rectangleResolutionOptions = [
   {
-    value: "250px|100px",
-    label: "250 x 100",
+    value: "320px|180px",
+    label: "320 x 180",
   },
   {
-    value: "350px|150px",
-    label: "350 x 150",
+    value: "480px|270px",
+    label: "480 x 270",
   },
   {
-    value: "450px|200px",
-    label: "450 x 200",
+    value: "640px|360px",
+    label: "640 x 360",
   },
   {
-    value: "550px|250px",
-    label: "550 x 250",
+    value: "800px|450px",
+    label: "800 x 450",
+  },
+  {
+    value: "1024px|576px",
+    label: "1024 x 576",
+  },
+  {
+    value: "1280px|720px",
+    label: "1280 x 720",
+  },
+  {
+    value: "1920px|1080px",
+    label: "1920 x 1080",
   },
 ];
 
 const shapes = [
   {
-    value: "square",
-    label: "Square",
-  },
-  {
     value: "rectangle",
     label: "Rectangle",
+  },
+  {
+    value: "square",
+    label: "Square",
   },
   {
     value: "circle",
@@ -76,10 +88,10 @@ const shapes = [
 
 function CamSection() {
   const [resolutionOptions, setResolutionOptions] = useState(
-    defaultResolutionOptions
+    rectangleResolutionOptions
   );
 
-  const [selectedShape, setSelectedShape] = useState("circle");
+  const [selectedShape, setSelectedShape] = useState("rectangle");
 
   const handleResolutionChange = (e) => {
     const size = e.target.value;
@@ -99,22 +111,22 @@ function CamSection() {
     setSelectedShape(shape);
     switch (shape) {
       case "circle":
-        setResolutionOptions(defaultResolutionOptions);
+        setResolutionOptions(squareResolutionOptions);
         style.borderRadius = "50%";
         style.width = "100px";
         style.height = "100px";
         break;
       case "square":
-        setResolutionOptions(defaultResolutionOptions);
+        setResolutionOptions(squareResolutionOptions);
         style.borderRadius = "0";
         style.width = "100px";
         style.height = "100px";
         break;
       case "rectangle":
         setResolutionOptions(rectangleResolutionOptions);
-        style.width = "250px";
-        style.height = "100px";
-        style.borderRadius = "0";
+        style.width = "320px";
+        style.height = "180px";
+        style.borderRadius = "5px";
         break;
       default:
         break;

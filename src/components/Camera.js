@@ -27,6 +27,8 @@ const Camera = () => {
         deviceId: {
           exact: videoSource,
         },
+        width: 1280,
+        height: 720,
       },
     };
     electronAPI.sendSync("shared-window-channel", {
