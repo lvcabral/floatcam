@@ -68,7 +68,6 @@ window.addEventListener("DOMContentLoaded", function () {
   navigator.mediaDevices.enumerateDevices().then((devices) => {
     const cams = devices.filter((device) => device.kind === "videoinput");
     if (cams?.length) {
-      cams.reverse();
       window.electronAPI.sendSync("shared-window-channel", {
         type: "set-webcams",
         payload: JSON.stringify(cams),
